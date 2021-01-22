@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+@keyframes blinker {
+  100% {
+    opacity: 0;
+  }
+}
+
+body {
+  background-image: url("https://media.istockphoto.com/vectors/seamless-dice-pattern-on-a-white-background-vector-id160564227");
+  font-family: 'Nerko One', cursive;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 50px;
+}
+
+.playerOne-section {
+  border: solid 10px black;
+  border-radius: 100px 0 50px 50px;
+  text-align: center;
+  font-size: 50px;
+  background-color: grey;
+  background: linear-gradient(180deg, darkGrey, lightGrey, white);
+  padding: 10px 30px 10px 10px;
+}
+
+.playerTwo-section {
+  border: solid 10px black;
+  border-radius: 0 100px 50px 50px;
+  text-align: center;
+  font-size: 50px;
+  background-color: grey;
+  background: linear-gradient(180deg, darkGrey, lightGrey, white);
+  padding: 10px 30px 10px 10px;
+}
+
+
+/****Formating the table rows****/
+.table {
+  border: solid 2px black;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 10px;
+  margin: 10px 50px 10px 10px;
+}
+
+.table-label {
+  font-weight: bold;
+  border: solid 2px black;
+}
+
+.lines-label {
+  font-weight: bold;
+  border: solid 1px black;
+}
+
+.lines-table {
+  border: solid 1px black;
+  font-style: oblique;
+}
+
+.lines-table-result {
+  border: solid 1px black;
+  cursor: pointer;
+}
+
+.lines-table-blink {
+  border: solid 1px black;
+  cursor: pointer;
+  color: red;
+  animation: blinker 1s linear infinite;
+}
+
+.lines-table-final {
+  border: solid 1px black;
+  font-weight: bold;
+  cursor: default;
+}
+
+.lines-table-label {
+  border: solid 2px black;
+}
+
+.table-label-grand {
+  font-size: 15px;
+  border: solid 2px black;
+}
+/****End of table rows****/
+
+
+.start-button {
+  position: absolute;
+  cursor: pointer;
+  border: solid 2px black;
+  border-radius: 20px 20px 20px 20px;
+  font-size: 80px;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: linear-gradient(90deg, black, darkgrey, lightgrey, white, lightgrey, darkgrey, black);
+  color: black;
+}
+
+.start-button:hover {
+  filter: brightness(50%);
+}
+
+.start-button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+.dices-section {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  border: solid 5px black;
+  padding: 0px 10px 0 10px;
+  background: linear-gradient(lightgrey, black);
+  align-items: center;
+}
+
+.dice {
+  padding: 3px 0 3px 0;
+  width: 50px;
+  height: 50px;
+}
+
+.roll-button {
+  margin-top: 10px;
+  cursor: pointer;
+  border: solid darkgrey 2px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.roll-button:hover {
+  filter: brightness(70%);
+}
+
+.roll-button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+.infoGame {
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 50;
+  color: white;
+  text-align: center;
+}
+
+.infoGameText {
+  font-size: 15px;
+  font-style: oblique;
+  color: white;
+  animation: blinker 2s linear infinite;
+  text-align: center;
+}
+
+.alert-message {
+  position: absolute;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  flex-direction: column;
+  border-radius: 20px 20px 20px 20px;
+  border: solid 5px rgb(26, 24, 24);
+  background-color: aliceblue;
+  width: 300px;
+  height: 100px;
+  top: 200px;
+}
+
+.alert-text {
+  font-size: 20px;
+}
+
+.alert-message-end {
+  position: absolute;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  flex-direction: column;
+  border-radius: 20px 20px 20px 20px;
+  border: solid 5px rgb(26, 24, 24);
+  background-color: aliceblue;
+  width: 300px;
+  height: 100px;
+  top: 200px;
+}
+
+.alert-text-end {
+  font-size: 20px;
+}
+
+.ok-button {
+  cursor: pointer;
+  position: relative;
+  border: solid 2px black;
+  border-radius: 20px 20px 20px 20px;
+  font-weight: bold;
+}
+
+.ok-button:hover {
+  filter: brightness(70%);
+}
+
+.ok-button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+.info {
+  top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: 20px 20px 20px 20px;
+  border: solid 5px rgb(26, 24, 24);
+  background-color: black;
+  font-size: 20px;
+  color: rgb(246, 34, 34);
+  text-align: center;
+}
+
+.red {
+  color: rgb(238, 72, 72)
+}

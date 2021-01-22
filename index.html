@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatzee Game</title>
+    <link rel="icon" type="image/png" href="/images/dices.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="script.js"></script>
+
+   <!--Game container -->
+    <div class="game-container">
+
+        <!-- Player One Section -->
+        <div class="playerOne-section" id="playerOne-section" >
+            <label class="" id="labelOne"> Player One </label>
+            <table style="width:100%" class="table" id="result-table-1">
+                <tr>
+                    <th class="table-label">UPPER SECTION</th>
+                    <th class="table-label">How to score</th>
+                    <th class="table-label">RESULT</th>
+                </tr>
+                <tr>
+                    <td class="lines-label">Onces</td>
+                    <td class="lines-table">Sum of all Ones</td>
+                    <td class="lines-table-result" id="1-pl1-1" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Twos</td>
+                    <td class="lines-table">Sum of all Twos</td>
+                    <td class="lines-table-result" id="2-pl1-2" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Threes</td>
+                    <td class="lines-table">Sum of all Threes</td>
+                    <td class="lines-table-result" id="3-pl1-3" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Fours</td>
+                    <td class="lines-table">Sum of all Fours</td>
+                    <td class="lines-table-result" id="4-pl1-4" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Fives</td>
+                    <td class="lines-table">Sum of all Fives</td>
+                    <td class="lines-table-result" id="5-pl1-5" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Sixes</td>
+                    <td class="lines-table">Sum of all Sixes</td>
+                    <td class="lines-table-result" id="6-pl1-6" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">TOTAL</td>
+                    <td class="lines-table-label">Sum of all Upper Section results</td>
+                    <td class="lines-table-label" id="7-pl1-7" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">BONUS - if Upper score is 63 or over </td>
+                    <td class="lines-table">score 35</td>
+                    <td class="lines-table-label" id="8-pl1-8"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">TOTAL UPPER SECTION</td>
+                    <td class="table-label">total upper section result</td>
+                    <td class="table-label" id="9-pl1-9" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">LOWER SECTION</td>
+                    <th class="table-label">How to score</th>
+                    <th class="table-label">RESULT</th>
+                </tr>
+                <tr>
+                    <td class="lines-label">3 of a kind</td>
+                    <td class="lines-table">Add total of all dices</td>
+                    <td class="lines-table-result" id="11-pl1-11" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">4 of a kind</td>
+                    <td class="lines-table">Add total of all dices</td>
+                    <td class="lines-table-result" id="12-pl1-12" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Full house</td>
+                    <td class="lines-table">score 25</td>
+                    <td class="lines-table-result" id="13-pl1-13" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Small straight</td>
+                    <td class="lines-table">score 30</td>
+                    <td class="lines-table-result" id="14-pl1-14" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Large straight</td>
+                    <td class="lines-table">score 40</td>
+                    <td class="lines-table-result" id="15-pl1-15" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Chance</td>
+                    <td class="lines-table">score total of 5 dices</td>
+                    <td class="lines-table-result" id="16-pl1-16" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">YATZEE - 5 of a kind</td>
+                    <td class="lines-table">score 50</td>
+                    <td class="lines-table-result" id="17-pl1-17" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">TOTAL LOWER SECTION</td>
+                    <td class="table-label">total lower section result</td>
+                    <td class="table-label" id="18-pl1-18" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="table-label-grand">GRAND TOTAL</td>
+                    <td class="table-label">sum of upper and lower section results</td>
+                    <td class="table-label-grand" id="19-pl1-19" value="0"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- End of Player One sextion -->
+
+        <!-- Start Button -->
+        <button class="start-button" id="start-button" onclick="playerTurn()">START</button>
+
+        <!-- Info text message - top - Showing number of current move -->
+        <output type="text" class="info" id="info">New Game</output>
+
+        <!-- Alert message -->
+        <div class="alert-message" id="alert-message">  
+            <output id="alert-text" class="alert-text" value=""></output>
+            <button class="ok-button" onclick="closeAlert()" id="ok-button">OK</button>
+        </div>
+
+        <!-- Alert message for the END-->
+        <div class="alert-message-end" id="alert-message-end">  
+            <output id="alert-text-end" class="alert-text-end" value=""></output>
+            <button class="ok-button" onclick="closeAlertEnd()">NEW GAME</button>
+        </div>
+        
+        <!-- Dice section -->
+        <div class="dices-section" id="dices-section">
+            <img src="/images/black-dice-1.png" class="dice" id="dice1" onclick="changeDice('dice1')">
+            <img src="/images/black-dice-2.png" class="dice" id="dice2" onclick="changeDice('dice2')">
+            <img src="/images/black-dice-3.png" class="dice" id="dice3" onclick="changeDice('dice3')">
+            <img src="/images/black-dice-4.png" class="dice" id="dice4" onclick="changeDice('dice4')">
+            <img src="/images/black-dice-5.png" class="dice" id="dice5" onclick="changeDice('dice5')">
+            <input type="image" src="/images/spin.png" class="roll-button" id="roll-button" onclick="roll()">
+            <output type="text" class="infoGame" id="infoGame"></output>
+            <output type="text" class="infoGameText" id="infoGameText"></output>
+        </div>
+        <!-- End of dice section -->
+
+         <!-- Player Two section -->
+        <div class="playerTwo-section" id="playerTwo-section">
+            <label class="" id="labelTwo"> Player Two </label>
+            <table style="width:100%" class="table" id="result-table-2">
+                <tr>
+                    <th class="table-label">UPPER SECTION</th>
+                    <th class="table-label">How to score</th>
+                    <th class="table-label">RESULT</th>
+                </tr>
+                <tr>
+                    <td class="lines-label">Onces</td>
+                    <td class="lines-table">Sum of all Ones</td>
+                    <td class="lines-table-result" id="1-pl2-1" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Twos</td>
+                    <td class="lines-table">Sum of all Twos</td>
+                    <td class="lines-table-result" id="2-pl2-2" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Threes</td>
+                    <td class="lines-table">Sum of all Threes</td>
+                    <td class="lines-table-result" id="3-pl2-3" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Fours</td>
+                    <td class="lines-table">Sum of all Fours</td>
+                    <td class="lines-table-result" id="4-pl2-4" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Fives</td>
+                    <td class="lines-table">Sum of all Fives</td>
+                    <td class="lines-table-result" id="5-pl2-5" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Sixes</td>
+                    <td class="lines-table">Sum of all Sixes</td>
+                    <td class="lines-table-result" id="6-pl2-6" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">TOTAL</td>
+                    <td class="lines-table-label">Sum of all Upper Section results</td>
+                    <td class="lines-table-label" id="7-pl2-7" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">BONUS - if Upper score is 63 or over </td>
+                    <td class="lines-table">score 35</td>
+                    <td class="lines-table-label" id="8-pl2-8"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">TOTAL UPPER SECTION</td>
+                    <td class="table-label">total upper section result</td>
+                    <td class="table-label" id="9-pl2-9" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">LOWER SECTION</td>
+                    <th class="table-label">How to score</th>
+                    <th class="table-label">RESULT</th>
+                </tr>
+                <tr>
+                    <td class="lines-label">3 of a kind</td>
+                    <td class="lines-table">Add total of all dices</td>
+                    <td class="lines-table-result" id="11-pl2-11" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">4 of a kind</td>
+                    <td class="lines-table">Add total of all dices</td>
+                    <td class="lines-table-result" id="12-pl2-12" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Full house</td>
+                    <td class="lines-table">score 25</td>
+                    <td class="lines-table-result" id="13-pl2-13" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Small straight</td>
+                    <td class="lines-table">score 30</td>
+                    <td class="lines-table-result" id="14-pl2-14" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Large straight</td>
+                    <td class="lines-table">score 40</td>
+                    <td class="lines-table-result" id="15-pl2-15" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">Chance</td>
+                    <td class="lines-table">score total of 5 dices</td>
+                    <td class="lines-table-result" id="16-pl2-16" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="lines-label">YATZEE - 5 of a kind</td>
+                    <td class="lines-table">score 50</td>
+                    <td class="lines-table-result" id="17-pl2-17" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td class="table-label">TOTAL LOWER SECTION</td>
+                    <td class="table-label">total lower section result</td>
+                    <td class="table-label" id="18-pl2-18" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="table-label-grand">GRAND TOTAL</td>
+                    <td class="table-label">sum of upper and lower section results</td>
+                    <td class="table-label-grand" id="19-pl2-19" value="0"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- End of Player Two section -->
+
+    </div>
+    <!-- End of Game Container -->
+</body>
+</html>
